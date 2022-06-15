@@ -1,10 +1,12 @@
 # AdgHelper
 Tools to help QC of ICES advice sheets
 
-ICES produces catch advice for a large number of species on an annual basis (https://www.ices.dk/advice/Pages/Latest-Advice.aspx). The AdgHelper repository is intended to host  scripts to help stock reviewers and auditors identify mistakes.
+ICES produces catch advice for a large number of species on an annual basis (https://www.ices.dk/advice/Pages/Latest-Advice.aspx). The AdgHelper repository is intended to host scripts to help stock reviewers and auditors identify mistakes in the draft advice sheets.
 
-For now there is just one R script (plot catchoptions.R). It reads the catch options table from the draft advice MS Word documents and creates plots to help identify any values that do not follow the same trend from the other data points. The same script also produces a csv file with all the tables in the Word document that can be used to further check the consistency of these tables (manually, in Excel)
+This repository contains two R scripts and one MS word macro-enabled document:
+* "copy advice sheets from sharepoint.R" does just that. It is a bid fiddly to get the url that lists the file names on the advice sharepoint but if you follow the instructions it should work. The alterative is to manually copy the files to a local folder.
 
-I havent figured out how to automatically download all Word files from the advice sharepoint; because of the way the sharepoint site is set up only the first 30 files are displayed on the first page and i havent found a way to get the file locations of documents other than the first 30. So for now, you need to manually copy the word documents to a local folder. 
+* "accept changes macro.docm" lets you accept all changes for documents with tracked changes (the R function that reads the docx files does not correctly deal with tracked changes). You can do an entire batch of files in one go.
 
-The second problem is that the R function does not correctly deal with tracked changes. The repository contains a macro-enabled Word file that will let you accept all changes for a batch of files to deal with this (accept changes macro.docm).
+* "plot catchoptions.R" reads the catch options table from the MS Word advice sheets and creates plots to help identify any values that do not follow the same trend from the other data points. The same script also produces a csv file with all the tables in the Word document that can be used to further check the consistency of these tables (manually, in Excel)
+
